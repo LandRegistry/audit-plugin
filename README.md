@@ -6,6 +6,8 @@ Add this dependency to ```requirements.txt```:
 
 Initialise in your Flask app like so to get tagged auditing:
 
+    from audit import Audit
+    
     app = Flask(__name__)
     Audit(app)
 
