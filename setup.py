@@ -13,5 +13,5 @@ setup(name='lraudit',
       include_package_data=True,
       license='MIT',
       platforms='any',
-      install_requires=['Flask-Login>=0.2.11'],
+      install_requires=[],
 )
