@@ -1,8 +1,6 @@
 from flask import request_started, request, session
 
-
-TEMPLATE = 'Audit: user=[%s], request=[%s], session=[%s]'
-
+TEMPLATE = 'Audit: user=[%s], request=[%s], session=[%s], ip_address=[%s], request_url=[%s]'
 
 class Audit(object):
 
@@ -18,6 +16,7 @@ class Audit(object):
 def audit_user(sender, **extra):
     from flask.ext.login import current_user
     id = current_user.get_id()
+
     if id:
         log(sender, current_user, request, session)
     else:
@@ -29,4 +28,4 @@ def audit_anon(sender, **extra):
 
 
 def log(sender, who, request, session):
-    sender.logger.info(TEMPLATE % (who, request, session))
+    sender.logger.info(TEMPLATE % (who, request, session, request.remote_addr, request.url))
