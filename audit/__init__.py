@@ -28,11 +28,8 @@ def audit_anon(sender, **extra):
 
 
 def log(sender, who, request, session):
-
-    #TODO remove when we move off heroku
-    herokuized_remote_addr = _get_remote_addr(request)
-
-    sender.logger.info(TEMPLATE % (who, request, session, herokuized_remote_addr, request.url))
+    proxied_remote_addr = _get_remote_addr(request)
+    sender.logger.info(TEMPLATE % (who, request, session, proxied_remote_addr, request.url))
 
 
 def _get_remote_addr(request):
