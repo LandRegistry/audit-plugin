@@ -28,4 +28,16 @@ def audit_anon(sender, **extra):
 
 
 def log(sender, who, request, session):
-    sender.logger.info(TEMPLATE % (who, request, session, request.remote_addr, request.url))
+
+    #TODO remove when we move off heroku
+    herokuized_remote_addr = _get_remote_addr(request)
+
+    sender.logger.info(TEMPLATE % (who, request, session, herokuized_remote_addr, request.url))
+
+
+def _get_remote_addr(request):
+    forwarded_for_ips = request.access_route
+    if len(forwarded_for_ips) > 0:
+        return forwarded_for_ips[0]
+    else:
+        return request.remote_addr
