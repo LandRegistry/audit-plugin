@@ -2,7 +2,7 @@
 
 Add this dependency to ```requirements.txt```:
 
-    lraudit=0.1.1
+    lraudit==0.1.1
 
 Initialise in your Flask app like so to get tagged auditing:
 
