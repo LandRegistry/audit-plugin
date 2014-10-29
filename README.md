@@ -2,7 +2,7 @@
 
 Add this dependency to ```requirements.txt```:
 
-    -e git+https://github.com/LandRegistry/audit-plugin.git#egg=audit
+    lraudit=0.1.1
 
 Initialise in your Flask app like so to get tagged auditing:
 
