@@ -1,5 +1,11 @@
 #!/usr/bin/env python
 
+# see http://bugs.python.org/issue8876
+# this is just a quick hack so we can test build in vagrant
+import os
+if os.environ.get('USER','') == 'vagrant':
+  del os.link
+
 from setuptools import setup, find_packages
 
 setup(name='lraudit',
