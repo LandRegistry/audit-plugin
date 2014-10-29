@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 
 setup(name='lraudit',
-      version='0.1',
+      version='0.1.1',
       description='Adds auditing to LR Flask apps',
       author='Land Registry',
       author_email='lr-dev@example.org',

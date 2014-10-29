@@ -7,7 +7,7 @@ Add this dependency to ```requirements.txt```:
 Initialise in your Flask app like so to get tagged auditing:
 
     from audit import Audit
-    
+
     app = Flask(__name__)
     Audit(app)
 
@@ -32,7 +32,7 @@ Here's an example of a non-logged-in user asking for the app root, then logging 
     Audit: user=[{'id': '1', 'email': 'test@example.org'}], request=[<Request 'http://localhost:8000/registration' [GET]>], session=[<SecureCookieSession {u'_fresh': True, u'user_id': u'1', u'_id': 'cb3471d019b91e1b4fe2a65ab521c757'}>]
     --------------------------------------------------------------------------------
     127.0.0.1 - - [05/Aug/2014 20:59:35] "GET /registration HTTP/1.1" 200 -
-    
+
 
 The downstream log viewer can now track this particular user's session throughout by filtering on ```cb3471d019b91e1b4fe2a65ab521c757```, which is the session cookie regardless of being logged in or not.
 
@@ -41,7 +41,7 @@ The downstream log viewer can now track this particular user's session throughou
 **Add the following to your requirements.txt**
 
 ```
-lraudit==0.1
+lraudit==0.1.1
 ```
 
 ### Push new versions to PYPI public repository
